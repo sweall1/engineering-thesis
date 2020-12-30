@@ -1,0 +1,51 @@
+{% extends 'workshop/home.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h4>Dane warsztatu:</h4>
+{% for x in workshop %}
+    <td>Nazwa:{{ x.Name }}</td><br>
+    <td>Kategoria:{{ x.Category }}</td><br>
+    <td>Opis: {{ x.Description }}<br></td>
+    <td>Miasto:{{ x.City }}</td>
+    <br><br>
+{% endfor %}
+    <h4>Komentarze:</h4>
+    {% for x in comment %}
+
+    <td>Opis: {{ x.Comment }}</td><br>
+    <td>Jakość usług:  {{ x.Quality }}</td><br>
+    <td>Cena usług:  {{ x.Price }}<br></td>
+        <td>Autor: {{ x.author }}</td>
+    <br><br>
+{% endfor %}
+
+<h4>Dodaj komentarz:</h4>
+
+    <form method="POST">
+{% csrf_token %}
+{{ forma|crispy }}
+<input class="btn btn-sm btn-info" type="submit" value="Wyślij">
+</form>
+
+<h4>Umów się na wizytę:</h4>
+
+<form method="POST" novalidate>
+{% csrf_token %}
+{{ formb|crispy }}
+<input class="btn btn-sm btn-info" type="submit" value="Wyślij">
+</form>
+
+
+</body>
+</html>
+
+{% endblock %}

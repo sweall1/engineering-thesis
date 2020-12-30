@@ -1,0 +1,40 @@
+{%  extends 'workshop/home.html' %}
+{% include 'workshop/navbar.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="get">
+   <br> Filtrowanie <br><br>
+{{ myFilter.form }}<br>
+    Filtruj względem:
+    <form>
+  <input type="radio" id="male" name="gender" value="male">
+  <label for="male">Jakości usług</label>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Ceny usług</label><br>
+
+</form>
+<button class="btn btn-sm btn-info" type="submit">Szukaj</button>
+</form>
+
+<hr>
+{% for x in workshop %}
+    Nazwa: <td>{{ x.Name }}</td><br>
+    Średnia ocen jakości: <td>{{ x.Quality }}</td><br>
+    Średnia ocen ceny usług: <td>{{ x.Price }}</td><br>
+    Miasto: <td>{{ x.City }}</td><br>
+    <td><a class="btn btn-sm btn-info" href="{% url 'workshop_detail' x.id %}">Pokaż ten warsztat</a> </td>
+    <br><br><hr>
+
+{% endfor %}
+
+</body>
+</html>
+
+{% endblock %}
