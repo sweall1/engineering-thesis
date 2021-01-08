@@ -1,1 +1,1 @@
-Project for a car workshops and other car services. Similar to booking.com or booksy.com, but it's made for a workshop owners and their customers.
+Project for a car workshops and other car services. Similar to booking.com or booksy.com, but it's made for a workshop owners and their customers. I will give mroe information, when project will be finished.
